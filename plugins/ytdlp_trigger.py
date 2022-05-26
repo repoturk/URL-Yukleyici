@@ -11,7 +11,7 @@ from PIL import Image
 from translation import Translation
 from pyrogram import Client, filters
 from pyrogram.enums import MessageEntityType, ChatAction
-from config import AUTH_CHANNEL, LOG_CHANNEL, DOWNLOAD_LOCATION, CHUNK_SIZE, DEF_THUMB_NAIL_VID_S, HTTP_PROXY
+from config import AUTH_CHANNEL, LOG_CHANNEL, DOWNLOAD_LOCATION, CHUNK_SIZE, DEF_THUMB_NAIL_VID_S, HTTP_PROXY, REFERER, REFERER_URL
 
 from functions.progress import humanbytes
 from functions.aiohttp import DownLoadFile
@@ -122,6 +122,9 @@ async def echo(bot, update):
     if "closeload" in url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://closeload.com/")
+    if REFERER in url:
+        command_to_exec.append("--referer")
+        command_to_exec.append("https://{REFERER_URL}/")
     if "mail.ru" in url:
         command_to_exec.append("--referer")
         command_to_exec.append("https://my.mail.ru/")
