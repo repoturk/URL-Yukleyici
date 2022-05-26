@@ -66,6 +66,10 @@ PROCESS_MAX_TIMEOUT = 3600
 # watermark file
 DEF_WATER_MARK_FILE = ""
 
+# Website referer
+REFERER = environ.get("REFERER", "")
+REFERER_URL = environ.get("REFERER_URL", "")
+
 # your telegram id
 OWNER_ID = int(environ.get("OWNER_ID"))
 
